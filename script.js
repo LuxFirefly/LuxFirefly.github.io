@@ -27,7 +27,7 @@ function adjustLifePoints(player, sign) {
 
         // Check if the game is finished
         if (currentValue === 0) {
-            resultDisplay.textContent = `${getPlayerName(player)} lost! Game Over.`;
+            resultDisplay.textContent = `${getPlayerName(player)} lost the duel. Game Over`;
             logWinner((player === 1) ? player2NameInput.value : player1NameInput.value);
         } else {
             resultDisplay.textContent = '';
@@ -50,7 +50,7 @@ function divideByTwo(player) {
 
     // Check if the game is finished
     if (dividedValue === 0) {
-        resultDisplay.textContent = `${getPlayerName(player)} lost! Game Over.`;
+        resultDisplay.textContent = `${getPlayerName(player)} lost the duel. Game Over.`;
         logWinner((player === 1) ? player2NameInput.value : player1NameInput.value);
     } else {
         resultDisplay.textContent = '';
@@ -72,7 +72,7 @@ function getPlayerName(player) {
 
 function logAdjustment(player, adjustment, sign) {
     if (sign === -1 && adjustment === '/2') {
-        historyDisplay.innerHTML += `<p>${player} LP divided by 2</p>`;
+        historyDisplay.innerHTML += `<p>${player} Life Points divided by 2</p>`;
     } else {
         const action = (sign === 1) ? '+' : '-';
         historyDisplay.innerHTML += `<p>${player} ${action} ${Math.abs(adjustment)}</p>`;
@@ -84,11 +84,11 @@ function logWinner() {
     const player2Life = parseInt(player2Display.value);
 
     if (player1Life === 0 && player2Life === 0) {
-        resultDisplay.innerHTML = `<p class="draw">It's a draw! Game Over.</p>`;
+        resultDisplay.innerHTML = `<p class="draw">It's a draw. Game Over.</p>`;
     } else if (player1Life === 0) {
-        resultDisplay.innerHTML = `<p class="losing">${player1NameInput.value} lost! Game Over.</p><p class="winning">${player2NameInput.value} won!</p>`;
+        resultDisplay.innerHTML = `<p class="losing">${player1NameInput.value} lost the duel. Game Over</p><p class="winning">${player2NameInput.value} won the duel</p>`;
     } else if (player2Life === 0) {
-        resultDisplay.innerHTML = `<p class="losing">${player2NameInput.value} lost! Game Over.</p><p class="winning">${player1NameInput.value} won!</p>`;
+        resultDisplay.innerHTML = `<p class="losing">${player2NameInput.value} lost the duel. Game Over</p><p class="winning">${player1NameInput.value} won the duel</p>`;
     } else {
         resultDisplay.textContent = ''; // No winner or loser yet
     }
